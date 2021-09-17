@@ -22,7 +22,17 @@ module.exports = {
     },
     bsc: {
       chainId: 56,
-      url: "https://data-seed-prebsc-2-s1.binance.org:8545/",
+      url: "https://bsc-dataseed.binance.org",
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
+    tavax: {
+      chainId: 43113,
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
+    tbsc: {
+      chainId: 97,
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
     hardhat: {
@@ -57,7 +67,7 @@ module.exports = {
     timeout: 200000,
   },
   etherscan: {
-    apiKey: `${process.env.ETHERSCAN_API_KEY}`,
+    apiKey: `${process.env.BSCSCAN_API_KEY}`,
   },
   abiExporter: {
     path: "./abi",

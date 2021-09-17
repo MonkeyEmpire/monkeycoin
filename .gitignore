@@ -5,3 +5,6 @@ abi
 types
 coverage
 coverage.json
+secrets.json
+srcbuild
+.env
