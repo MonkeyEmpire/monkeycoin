@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 interface IToken {
     function mint(address to, uint256 amount) external;
 
-    function burn(address owner, uint256 amount) external;
+    function burnFrom(address owner, uint256 amount) external;
 }
 
 contract MKCBridgeBsc is Ownable {
@@ -37,7 +37,7 @@ contract MKCBridgeBsc is Ownable {
     function burn(address to, uint256 amount) external payable {
         require(msg.value >= fees, "Fees too low");
         payable(owner()).transfer(address(this).balance);
-        token.burn(msg.sender, amount);
+        token.burnFrom(msg.sender, amount);
         emit Transfer(
             msg.sender,
             to,

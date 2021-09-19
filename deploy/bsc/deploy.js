@@ -13,8 +13,8 @@ main = async () => {
 
   const MKCBridgeBsc = await ethers.getContractFactory("MKCBridgeBsc");
   const bridge = await MKCBridgeBsc.deploy(
-    "0xE82c4ce37F381242E9082c28c84936778dFCc1D3",
-    "100000"
+    monkeyCoin.address,
+    "1000000000000000"
   ); // 0.001 BSC
   await bridge.deployed();
   console.log("MKCBridgeBsc deployed at", bridge.address);
