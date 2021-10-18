@@ -8,8 +8,4 @@ contract MonkeyCoinAvax is ERC20Burnable, Ownable {
     constructor(uint256 totalSupply) ERC20("MonkeyCoin", "MKC") Ownable() {
         _mint(msg.sender, totalSupply * (10**uint256(decimals())));
     }
-
-    function mint(address account, uint256 amount) external onlyOwner {
-        require(false, "mint not enabled");
-    }
 }

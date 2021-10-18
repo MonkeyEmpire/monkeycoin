@@ -7,7 +7,9 @@ main = async () => {
 
   // depositToken
   const MonkeyCoinBsc = await ethers.getContractFactory("MonkeyCoinBsc");
-  const monkeyCoin = await MonkeyCoinBsc.deploy(); // total supply = 210 B
+  const monkeyCoin = await MonkeyCoinBsc.deploy(
+    ethers.utils.parseUnits("210000000000")
+  ); // max supply = 210 B
   await monkeyCoin.deployed();
   console.log("MonkeyCoinBsc deployed at", monkeyCoin.address);
 
