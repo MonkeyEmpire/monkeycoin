@@ -1,18 +1,18 @@
 import { getAvaxWeb3Instance, getBscWeb3Instance, BRIDGE_AVAX_ADDRESS, BRIDGE_BSC_ADDRESS, ADMIN_ADDRESS } from '../utils';
 import { Blockchain } from "./index";
-import * as BridgeAvaxABI from '../../artifacts/contracts/MKCBridgeAvax.sol/MKCBridgeAvax.json'
-import * as BridgeBscABI from '../../artifacts/contracts/MKCBridgeBsc.sol/MKCBridgeBsc.json'
+import * as BridgeAvaxABI from '../../abi/MKCBridgeAvax.json'
+import * as BridgeBscABI from '../../abi/MKCBridgeBsc.json'
 
 const web3Avax = getAvaxWeb3Instance()
 const web3Bsc = getBscWeb3Instance()
 
 const bridgeAvaxContract = new web3Avax.eth.Contract(
-    BridgeAvaxABI.abi as any,
+    BridgeAvaxABI as any,
     BRIDGE_AVAX_ADDRESS
 )
 
 const bridgeBSC = new web3Bsc.eth.Contract(
-    BridgeBscABI.abi as any,
+    BridgeBscABI as any,
     BRIDGE_BSC_ADDRESS
 )
 
