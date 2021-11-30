@@ -1,7 +1,7 @@
 import { getAvaxWeb3Instance, getBscWeb3Instance, BRIDGE_AVAX_ADDRESS, BRIDGE_BSC_ADDRESS, ADMIN_ADDRESS } from './utils';
 import * as fs from 'fs'
-import * as BridgeAvaxABI from '../abi/MKCBridgeAvax.json'
-import * as BridgeBscABI from '../abi/MKCBridgeBsc.json'
+import * as BridgeAvaxABI from '../artifacts/contracts/MKCBridgeAvax.sol/MKCBridgeAvax.json'
+import * as BridgeBscABI from '../artifacts/contracts/MKCBridgeBsc.sol/MKCBridgeBsc.json'
 
 const lastBlockAVAXFilename = "./last_block_avax.txt"
 const lastBlockBSCFilename = "./last_block_bsc.txt"
@@ -9,11 +9,11 @@ const web3Avax = getAvaxWeb3Instance()
 const web3Bsc = getBscWeb3Instance()
 
 const bridgeAvax = new web3Avax.eth.Contract(
-  BridgeAvaxABI as any,
+  BridgeAvaxABI.abi as any,
   BRIDGE_AVAX_ADDRESS
 )
 const bridgeBSC = new web3Bsc.eth.Contract(
-  BridgeBscABI as any,
+  BridgeBscABI.abi as any,
   BRIDGE_BSC_ADDRESS
 )
 
